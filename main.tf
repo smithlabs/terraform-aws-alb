@@ -78,11 +78,11 @@ resource "aws_alb_target_group" "backend" {
   health_check {
     healthy_threshold   = 2
     unhealthy_threshold = 10
-    timeout             = "5"
+    timeout             = "3"
     port                = "8080"
     path                = "/health"
     protocol            = "HTTP"
-    interval            = 5
+    interval            = 10
     matcher             = "200"
   }
 
