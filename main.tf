@@ -74,6 +74,7 @@ resource "aws_alb_target_group" "backend" {
   port     = 8080
   protocol = "HTTP"
   vpc_id   = data.aws_vpc.default.id
+  deregistration_delay = 0
 
   health_check {
     healthy_threshold   = 2
