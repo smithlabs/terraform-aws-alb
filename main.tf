@@ -60,7 +60,7 @@ resource "aws_alb_listener" "alb_https" {
 
   # Default action, 
   default_action {
-    type = "forward"
+    type             = "forward"
     target_group_arn = aws_alb_target_group.backend.arn
   }
 }
@@ -73,19 +73,20 @@ resource "aws_alb_target_group" "backend" {
   name     = "${var.alb_name}-backend"
   port     = 8080
   protocol = "HTTP"
-  vpc_id = data.aws_vpc.default.id
+  vpc_id   = data.aws_vpc.default.id
 
- health_check {
-   healthy_threshold = 2
-   unhealthy_threshold = 10
-   timeout = "5"
-   port = "8080"
-   path = "/health"
-   protocol = "HTTP"
-   interval = 5
-   matcher = "200"
+  health_check {
+    healthy_threshold   = 2
+    unhealthy_threshold = 10
+    timeout             = "5"
+    port                = "8080"
+    path                = "/health"
+    protocol            = "HTTP"
+    interval            = 5
+    matcher             = "200"
+  }
+
 }
-
 
 # ---------------------------------------------------------------------------------------------------------------------
 # CREATE A SECURITY GROUP THAT CONTROLS WHAT TRAFFIC CAN GO IN AND OUT OF THE ALB

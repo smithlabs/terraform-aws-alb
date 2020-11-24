@@ -20,5 +20,5 @@ output "alb_zone_id" {
 
 output "alb_backend" {
   description = "The target ARN of the ALB"
-  value = aws_alb_target_group.backend.arn
+  value       = aws_alb_target_group.backend.arn
 }
