@@ -18,6 +18,12 @@ variable "subnet_ids" {
 # Provide some reasonable defaults
 # ---------------------------------------------------------------------------------------------------------------------
 
+variable "acm_arn" {
+  description = "The ARN of the ACM certificate"
+  type        = string
+  default     = null
+}
+
 variable "instance_port" {
   description = "The port for that instance listens on for requests"
   type        = string

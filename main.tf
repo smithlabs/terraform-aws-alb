@@ -54,7 +54,7 @@ resource "aws_alb_listener" "alb_http" {
 
 resource "aws_alb_listener" "alb_https" {
   load_balancer_arn = aws_alb.alb.arn
-  certificate_arn   = "arn:aws:acm:us-east-1:274561003701:certificate/5b19b8dd-d24d-4ff3-aba8-16770aa9e6df"
+  certificate_arn   = var.acm_arn
   port              = "443"
   protocol          = "HTTPS"
 
